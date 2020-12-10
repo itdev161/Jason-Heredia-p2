@@ -1,0 +1,35 @@
+{
+  "name": "jason-heredia-p2",
+  "version": "1.0.0",
+  "description": "Final Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r esm server.js",
+    "server": "nodemon -r esm server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itdev161/Jason-Heredia-p2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itdev161/Jason-Heredia-p2/issues"
+  },
+  "homepage": "https://github.com/itdev161/Jason-Heredia-p2#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.3",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-validator": "^6.8.0",
+    "jshint": "^2.12.0",
+    "mongoose": "^5.11.6"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
