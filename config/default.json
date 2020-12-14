@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://Project2:project2@cluster0.ptuyy.mongodb.net/Cluster0?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://Project2:project2@cluster0.ptuyy.mongodb.net/Cluster0?retryWrites=true&w=majority",
+    "jwtSecret": "gamer4life"
 }
