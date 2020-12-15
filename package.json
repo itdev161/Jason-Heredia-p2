@@ -1,7 +1,7 @@
 {
-  "name": "jason-heredia-p2",
+  "name": "c",
   "version": "1.0.0",
-  "description": "Final Project",
+  "description": "Project 2",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,24 +17,23 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/itdev161/Jason-Heredia-p2/issues"
+    "url": "https://github.com/itdev161/Jason-Heredia/issues-p2"
   },
   "homepage": "https://github.com/itdev161/Jason-Heredia-p2#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
-    "config": "^3.3.3",
+    "config": "^3.3.1",
     "cors": "^2.8.5",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "express-validator": "^6.8.0",
-    "jshint": "^2.12.0",
+    "express-validator": "^6.6.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.6",
-    "react-router-dom": "^5.2.0"
+    "mongoose": "^5.10.5",
+    "react-router-dom": "^5.2.0",
+    "slugify": "^1.4.6"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.4"
   }
 }

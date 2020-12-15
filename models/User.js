@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
-    gameID: {
+    name: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     email: {
         type: String,
@@ -12,11 +11,11 @@ const UserSchema = new mongoose.Schema({
         unique: true
     },
     password: {
-        type: String, 
+        type: String,
         required: true
     }
 });
 
-const User = mongoose.model(`user`, UserSchema);
+const User = mongoose.model('user', UserSchema);
 
 export default User;

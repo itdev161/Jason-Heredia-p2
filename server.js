@@ -4,10 +4,10 @@ import { check, validationResult } from 'express-validator';
 import cors from 'cors';
 import bcrypt from 'bcryptjs';
 import User from './models/User';
+import Post from './models/Post';
 import jwt from 'jsonwebtoken';
 import config from 'config';
 import auth from './middleware/auth';
-import Post from './models/Post';
 
 const app = express();
 
@@ -36,7 +36,7 @@ app.get('/', (req, res) =>
 app.post(
     '/api/users',
     [
-        check('gameID', 'Please enter your gameID').not().isEmpty(),
+        check('name', 'Please enter your name').not().isEmpty(),
         check('email', 'Please enter a valid email').isEmail(),
         check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 })
     ],
@@ -45,7 +45,7 @@ app.post(
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() });
         } else {
-            const { gameID, email, password } = req.body;
+            const { name, email, password } = req.body;
             try {
                 // Check if user exists
                 let user = await User.findOne({ email: email });
@@ -56,7 +56,7 @@ app.post(
 
                 // Create a new user
                 user = new User({
-                    gameID: gameID,
+                    name: name,
                     email: email,
                     password: password
                 });
@@ -78,6 +78,10 @@ app.post(
         }
     }
 );
+
+// Connection listener
+const port = 5000;
+app.listen(port, () => console.log(`Express server running on port ${port}`));
 
 /**
  * @route GET api/auth
@@ -162,11 +166,11 @@ app.post(
         auth,
         [
             check('title', 'Title text is required')
-             .not()
-             .isEmpty(),
+            .not()
+            .isEmpty(),
             check('body', 'Body text is required')
-             .not()
-             .isEmpty()
+            .not()
+            .isEmpty()
         ]
     ],
     async (req, res) => {
@@ -239,7 +243,7 @@ app.get('/api/posts/:id', auth, async (req, res) => {
  */
 app.delete('/api/posts/:id', auth, async (req, res) => {
     try {
-        const post = await Post.dinfById(req.params.id);
+        const post = await Post.findById(req.params.id);
 
         // Make sure the post was found
         if (!post) {
@@ -291,7 +295,3 @@ app.put('/api/posts/:id', auth, async (req, res) => {
         res.status(500).send('Server error');
     }
 });
-
-// Connection listener
-const port = 5000;
-app.listen(port, () => console.log(`Express server running on port ${port}`));

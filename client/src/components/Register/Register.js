@@ -5,16 +5,15 @@ import { useHistory } from 'react-router-dom';
 const Register = ({ authenticateUser }) => {
     let history = useHistory();
     const [userData, setUserData] = useState({
-        gameID: '',
+        name: '',
         email: '',
         password: '',
         passwordConfirm: ''
     });
+const [errorData, setErrorData] = useState({ errors: null});
 
-const [errorData, setErrorData] = useState({ errors: null });
 
-
-const { gameID, email, password, passwordConfirm } = userData;
+const {name, email, password, passwordConfirm } = userData;
 const { errors } = errorData;
 
 const onChange = e => {
@@ -22,8 +21,8 @@ const onChange = e => {
     setUserData({
         ...userData,
         [name]: value
-    });
-};
+    })
+}
 
 const registerUser = async () => {
     if (password !== passwordConfirm) {
@@ -31,7 +30,7 @@ const registerUser = async () => {
     }
     else {
         const newUser = {
-            gameID: gameID,
+            name: name,
             email: email,
             password: password
         }
@@ -41,7 +40,7 @@ const registerUser = async () => {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            };
+            }
 
             const body = JSON.stringify(newUser);
             const res = await axios.post('http://localhost:5000/api/users', body, config);
@@ -56,7 +55,7 @@ const registerUser = async () => {
             setErrorData({
                 ...errors,
                 errors: error.response.data.errors
-            });
+            })
         }
 
         authenticateUser();
@@ -69,9 +68,9 @@ return (
         <div>
             <input
             type="text"
-            placeholder="GameID"
-            name="gameID"
-            value={gameID}
+            placeholder="Name"
+            name="name"
+            value={name}
             onChange={e => onChange(e)}/>
         </div>
         <div>
