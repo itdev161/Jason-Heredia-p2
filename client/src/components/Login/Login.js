@@ -40,11 +40,11 @@ history.push('/');
             // Clear user data
             localStorage.removeItem('token');
 
-            setErrorData({ ...errors, errors: error.response.data.errors})
+            setErrorData({ ...errors, errors: error.response.data.errors });
         }
 
         authenticateUser();
-    }
+    };
 
     return (
         <div>
